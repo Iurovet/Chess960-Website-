@@ -1,73 +1,16 @@
 import './App.css';
+import WhiteRow from './Fragments/WhiteRow';
+import BlackRow from './Fragments/BlackRow';
+import { useState } from 'react';
 
 function App() {
+  const [orientation, setOrientation] = useState("White");
+  
   return (
-    <div class="container">
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-      <div class="brown"></div>
-      <div class="white"></div>
-    </div>
+    <>
+      {orientation === "White" && <WhiteRow/>}
+      {orientation === "Black" && <BlackRow/>}
+    </>
   );
 }
 
