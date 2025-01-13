@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 function App() {
   const [orientation, setOrientation] = useState("White");
+  let pieces = ["rook", "knight", "bishop", "queen", "king", "bishop", "knight", "rook"];
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,8 +26,8 @@ function App() {
         </form>
       </div>
 
-      {orientation === "White" && <WhiteRow/>}
-      {orientation === "Black" && <BlackRow/>}
+      {orientation === "White" && <WhiteRow pieces={pieces}/>}
+      {orientation === "Black" && <BlackRow pieces={pieces}/>}
     </>
   );
 }
