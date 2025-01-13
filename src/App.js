@@ -13,7 +13,7 @@ function App() {
     if (orientation === "White") {
       setOrientation("Black");
     }
-    if (orientation === "Black") {
+    else if (orientation === "Black") {
       setOrientation("White");
     }
   }
