@@ -19,12 +19,14 @@ function App() {
   
   return (
     <>
+      <div style={{position: "absolute", left: "850px", /*border: "5px solid black"*/}}>
+        <form onSubmit={handleSubmit}>
+          <input type="submit" value="Flip board" />
+        </form>
+      </div>
+
       {orientation === "White" && <WhiteRow/>}
       {orientation === "Black" && <BlackRow/>}
-
-      <form onSubmit={handleSubmit}>
-        <input type="submit" value="Flip board" />
-      </form>
     </>
   );
 }
