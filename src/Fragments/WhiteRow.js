@@ -1,70 +1,71 @@
 function WhiteRow(props) {
+    console.log(props.pieces);
     return (
-        <div class="container">
-            <div class="white"><img src={"/Images/white" + props.pieces[0] + ".jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/white" + props.pieces[1] + ".jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/white" + props.pieces[2] + ".jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/white" + props.pieces[3] + ".jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/white" + props.pieces[4] + ".jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/white" + props.pieces[5] + ".jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/white" + props.pieces[6] + ".jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/white" + props.pieces[7] + ".jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/whitepawn.jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/whitepawn.jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/whitepawn.jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/whitepawn.jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/whitepawn.jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/whitepawn.jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/whitepawn.jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/whitepawn.jpg"} alt=""></img></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="black"></div>
-            <div class="white"></div>
-            <div class="white"><img src={"/Images/blackpawn.jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/blackpawn.jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/blackpawn.jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/blackpawn.jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/blackpawn.jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/blackpawn.jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/blackpawn.jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/blackpawn.jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/black" + props.pieces[0] + ".jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/black" + props.pieces[1] + ".jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/black" + props.pieces[2] + ".jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/black" + props.pieces[3] + ".jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/black" + props.pieces[4] + ".jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/black" + props.pieces[5] + ".jpg"} alt=""></img></div>
-            <div class="black"><img src={"/Images/black" + props.pieces[5] + ".jpg"} alt=""></img></div>
-            <div class="white"><img src={"/Images/black" + props.pieces[7] + ".jpg"} alt=""></img></div>
+        <div className="container">
+            <div className="white"><img src={"/Images/black" + props.pieces[0] + ".svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/black" + props.pieces[1] + ".svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/black" + props.pieces[2] + ".svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/black" + props.pieces[3] + ".svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/black" + props.pieces[4] + ".svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/black" + props.pieces[5] + ".svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/black" + props.pieces[6] + ".svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/black" + props.pieces[7] + ".svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/blackpawn.svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/blackpawn.svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/blackpawn.svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/blackpawn.svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/blackpawn.svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/blackpawn.svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/blackpawn.svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/blackpawn.svg"} alt=""></img></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="black"></div>
+            <div className="white"></div>
+            <div className="white"><img src={"/Images/whitepawn.svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/whitepawn.svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/whitepawn.svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/whitepawn.svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/whitepawn.svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/whitepawn.svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/whitepawn.svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/whitepawn.svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/white" + props.pieces[0] + ".svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/white" + props.pieces[1] + ".svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/white" + props.pieces[2] + ".svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/white" + props.pieces[3] + ".svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/white" + props.pieces[4] + ".svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/white" + props.pieces[5] + ".svg"} alt=""></img></div>
+            <div className="black"><img src={"/Images/white" + props.pieces[5] + ".svg"} alt=""></img></div>
+            <div className="white"><img src={"/Images/white" + props.pieces[7] + ".svg"} alt=""></img></div>
         </div>
     );
 }
