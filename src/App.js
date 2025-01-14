@@ -32,6 +32,40 @@ function App() {
   }
 
   const handleSwapRight = (event) => {
+    let number = parseInt(event.target.name);
+    let currPieces = { ...pieces };
+
+    if (orientation === "White") {
+      swap(number, number + 1, currPieces);
+    }
+    else if (orientation === "Black") {
+      swap(7 - number, 7 - (number + 1), currPieces);
+    }
+    
+    setPieces(currPieces);
+  }
+
+  function swap(a, b, currPieces) {
+    let temp = currPieces[a];
+    currPieces[a] = currPieces[b];
+    currPieces[b] = temp;
+  }
+
+  const handleSwapLeft = (event) => {
+    let number = event.target.name;
+    let currPieces = { ...pieces };
+    
+    if (orientation === "White") {
+      swap(number, number - 1, currPieces);
+    }
+    else if (orientation === "Black") {
+      swap(7 - number, 7 - (number - 1), currPieces);
+    }
+
+    setPieces(currPieces);
+  }
+
+  const handleSwapRight = (event) => {
     let number = event.target.name;
     let currPieces = { ...pieces };
 
@@ -57,6 +91,16 @@ function App() {
         <button onClick={handleBoardFlip}>Flip Board</button>
       </div>
 
+      <div className="container">
+        {orientation === "White" && <WhiteOrientation pieces={pieces}/>}
+        {orientation === "Black" && <BlackOrientation pieces={pieces}/>}
+
+        {dummyArray.map((number) => <div key={number}><button key={number} name={number} onClick={handleSwapRight}>&gt;</button></div>)}
+        <div></div>
+
+        <div></div>
+        {dummyArray.map((number) => <div key={number}><button key={number} name={number + 1} onClick={handleSwapLeft}>&lt;</button></div>)}
+      </div>
       <div className="container">
         {orientation === "White" && <WhiteOrientation pieces={pieces}/>}
         {orientation === "Black" && <BlackOrientation pieces={pieces}/>}
