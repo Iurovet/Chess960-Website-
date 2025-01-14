@@ -1,16 +1,18 @@
 import './App.css';
-import WhiteOrientation from './Fragments/WhiteOrientation';
-import BlackOrientation from './Fragments/BlackOrientation';
 import { useState } from 'react';
 
+import BlackOrientation from './Fragments/BlackOrientation';
+import WhiteOrientation from './Fragments/WhiteOrientation';
+import { numToPos } from './Utilities';
+
 function App() {
+  const dummyArray = [0, 1, 2, 3, 4, 5, 6, 7]; // For the swap buttons;
   const [orientation, setOrientation] = useState("White");
   const [pieces, setPieces] = useState(["rook", "knight", "bishop", "queen", "king", "bishop", "knight", "rook"]);
   
+  const [posNo, setPosNo] = useState(0);
   const [view, setView] = useState({ pawns: true, emptyRows: true });
   const [rules, setRules] = useState({ bishops: true, kingRooks: true });
-
-  const dummyArray = [0, 1, 2, 3, 4, 5, 6, 7]; // For the swap buttons;
 
   const handleBoardFlip = (event) => {
     event.preventDefault();
@@ -21,6 +23,18 @@ function App() {
     else if (orientation === "Black") {
       setOrientation("White");
     }
+  }
+
+  const handleBoardView = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    
+    // Copy fields.
+    const temp = { ...view };
+    
+    // Update field and state.
+    temp[name] = (value === "false");
+    setView(temp);
   }
 
   const handleSwapLeft = (event) => {
@@ -49,6 +63,18 @@ function App() {
     }
     
     setPieces(currPieces);
+  }
+
+  const handlePosNoChange = (event) => {
+    event.preventDefault();
+    const value = event.target.value;
+    setPosNo(value);
+  }
+  
+  const handlePosNoSubmit = (event) => {
+    event.preventDefault();
+    setPieces(numToPos(posNo));
+    setRules({ bishops: true, kingRooks: true }); // Retrieved position will always be valid.
   }
 
   function swap(a, b, currPieces) {
@@ -81,30 +107,24 @@ function App() {
       return "board-no-empty-rows-or-pawns";
     }
   }
-
-  const handleBoardView = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    
-    // Copy fields.
-    const temp = { ...view };
-    
-    // Update field and state.
-    temp[name] = (value === "false");
-    setView(temp);
-  }
   
   return (
     <>
-      <div style={{position: "absolute", left: "850px", /*border: "5px solid black"*/}}>
-        <form>
-          <button onClick={handleBoardFlip}>Flip Board</button>
+      <div style={{position: "absolute", left: "850px", border: "5px solid black"}}>
+        <button onClick={handleBoardFlip}>Flip Board</button>
           
-          <input type="checkbox" id="pawns" name="pawns" defaultValue={view.pawns} onChange={handleBoardView}/>
-          <label htmlFor="pawns"> Hide pawns</label>
-          
-          <input type="checkbox" id="emptyRows" name="emptyRows" defaultValue={view.emptyRows} onChange={handleBoardView}/>
-          <label htmlFor="emptyRows"> Hide empty rows</label> <br/>
+        <input type="checkbox" id="pawns" name="pawns" defaultValue={view.pawns} onChange={handleBoardView}/>
+        <label htmlFor="pawns"> Hide pawns</label>
+        
+        <input type="checkbox" id="emptyRows" name="emptyRows" defaultValue={view.emptyRows} onChange={handleBoardView}/>
+        <label htmlFor="emptyRows"> Hide empty rows</label> <br/>
+        
+        <form onSubmit={handlePosNoSubmit}>
+          <input type="number" id="posNo" name="posNo" min="0" max="959" step="1"
+            value={posNo || 0} onChange={handlePosNoChange}></input>
+          <label htmlFor="posNo">Enter position number (0-959)</label>
+
+          <input type="submit" value="Click to submit" />
         </form>
       </div>
 
