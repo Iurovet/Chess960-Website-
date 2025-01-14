@@ -63,7 +63,7 @@ function WhiteRow(props) {
             <div className="white"><img src={"/Images/white" + props.pieces[3] + ".png"} alt="" width="100" height="100"></img></div>
             <div className="black"><img src={"/Images/white" + props.pieces[4] + ".png"} alt="" width="100" height="100"></img></div>
             <div className="white"><img src={"/Images/white" + props.pieces[5] + ".png"} alt="" width="100" height="100"></img></div>
-            <div className="black"><img src={"/Images/white" + props.pieces[5] + ".png"} alt="" width="100" height="100"></img></div>
+            <div className="black"><img src={"/Images/white" + props.pieces[6] + ".png"} alt="" width="100" height="100"></img></div>
             <div className="white"><img src={"/Images/white" + props.pieces[7] + ".png"} alt="" width="100" height="100"></img></div>
         </div>
     );
