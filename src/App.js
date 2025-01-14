@@ -92,10 +92,10 @@ function App() {
           <button onClick={handleBoardFlip}>Flip Board</button>
           
           <input type="checkbox" id="pawns" name="pawns" defaultValue={view.pawns} onChange={handleBoardView}/>
-          <label htmlFor="pawns"> Show pawns</label>
+          <label htmlFor="pawns"> Hide pawns</label>
           
           <input type="checkbox" id="emptyRows" name="emptyRows" defaultValue={view.emptyRows} onChange={handleBoardView}/>
-          <label htmlFor="emptyRows"> Show empty rows</label>
+          <label htmlFor="emptyRows"> Hide empty rows</label>
         </form>
       </div>
 
