@@ -6,14 +6,13 @@ import { useState } from 'react';
 function App() {
   const [orientation, setOrientation] = useState("White");
   const [pieces, setPieces] = useState(["rook", "knight", "bishop", "queen", "king", "bishop", "knight", "rook"]);
-  const [view, setView] = useState({
-    pawns: true,
-    emptyRows: true
-  });
+  const [view, setView] = useState({ pawns: true, emptyRows: true });
 
-  const dummyArray = [0, 1, 2, 3, 4, 5, 6]; // For the swap buttons;
+  const dummyArray = [0, 1, 2, 3, 4, 5, 6, 7]; // For the swap buttons;
 
   const handleBoardFlip = (event) => {
+    event.preventDefault();
+    
     if (orientation === "White") {
       setOrientation("Black");
     }
@@ -82,7 +81,7 @@ function App() {
     const temp = { ...view };
     
     // Update field and state.
-    temp[name] = value === "false";
+    temp[name] = (value === "false");
     setView(temp);
   }
   
@@ -92,10 +91,10 @@ function App() {
         <form>
           <button onClick={handleBoardFlip}>Flip Board</button>
           
-          <input type="checkbox" id="pawns" name="pawns" value={view.pawns} onChange={handleBoardView}/>
+          <input type="checkbox" id="pawns" name="pawns" defaultValue={view.pawns} onChange={handleBoardView}/>
           <label htmlFor="pawns"> Show pawns</label>
           
-          <input type="checkbox" id="emptyRows" name="emptyRows" value={view.emptyRows} onChange={handleBoardView}/>
+          <input type="checkbox" id="emptyRows" name="emptyRows" defaultValue={view.emptyRows} onChange={handleBoardView}/>
           <label htmlFor="emptyRows"> Show empty rows</label>
         </form>
       </div>
@@ -105,11 +104,12 @@ function App() {
         {orientation === "White" && <WhiteOrientation pieces={pieces} view={view}/>}
         {orientation === "Black" && <BlackOrientation pieces={pieces} view={view}/>}
 
-        {dummyArray.map((number) => <div key={number}><button key={number} name={number} onClick={handleSwapRight}>&gt;</button></div>)}
-        <div></div>
-
-        <div></div>
-        {dummyArray.map((number) => <div key={number}><button key={number} name={number + 1} onClick={handleSwapLeft}>&lt;</button></div>)}
+        {dummyArray.map((number) => 
+          <div key={number}>
+            {number > 0 && <button key={number} name={number} onClick={handleSwapLeft}>&lt;</button>}
+            {number < 7 && <button key={number} name={number} onClick={handleSwapRight}>&gt;</button>}
+          </div>)
+        }
       </div>
     </>
   );
