@@ -1,5 +1,6 @@
 import BlackEmptyRows from './BlackEmptyRows.js';
 import BlackPawns from './BlackPawns.js';
+import WhiteEmptyRows from './WhiteEmptyRows.js';
 import WhitePawns from './WhitePawns.js';
 
 function BlackOrientation(props) {
@@ -15,7 +16,7 @@ function BlackOrientation(props) {
             <div className="white"><img src={"/Images/white" + props.pieces[0] + ".png"} alt="" width="100" height="100"></img></div>
             
             {props.view.pawns && <WhitePawns />}
-            {props.view.emptyRows && <BlackEmptyRows />}
+            {props.view.emptyRows && (props.view.pawns ? <BlackEmptyRows /> : <WhiteEmptyRows />)}
             {props.view.pawns && <BlackPawns />}
 
             <div className="white"><img src={"/Images/black" + props.pieces[7] + ".png"} alt="" width="100" height="100"></img></div>

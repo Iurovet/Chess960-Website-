@@ -5,12 +5,12 @@ import { useState } from 'react';
 
 function App() {
   const [orientation, setOrientation] = useState("White");
+  const [pieces, setPieces] = useState(["rook", "knight", "bishop", "queen", "king", "bishop", "knight", "rook"]);
   const [view, setView] = useState({
     pawns: true,
     emptyRows: true
   });
-  
-  const [pieces, setPieces] = useState(["rook", "knight", "bishop", "queen", "king", "bishop", "knight", "rook"]);
+
   const dummyArray = [0, 1, 2, 3, 4, 5, 6]; // For the swap buttons;
 
   const handleBoardFlip = (event) => {
@@ -56,6 +56,7 @@ function App() {
     currPieces[b] = temp;
   }
 
+  // Update className so that the number of grid rows adjusts. This keeps the swap buttons compact.
   function checkView() {
     let currView = { ...view };
 
@@ -72,14 +73,35 @@ function App() {
       return "board-no-empty-rows-or-pawns";
     }
   }
+
+  const handleBoardView = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    
+    // Copy fields.
+    const temp = { ...view };
+    
+    // Update field and state.
+    temp[name] = value === "false";
+    setView(temp);
+  }
   
   return (
     <>
       <div style={{position: "absolute", left: "850px", /*border: "5px solid black"*/}}>
-        <button onClick={handleBoardFlip}>Flip Board</button>
+        <form>
+          <button onClick={handleBoardFlip}>Flip Board</button>
+          
+          <input type="checkbox" id="pawns" name="pawns" value={view.pawns} onChange={handleBoardView}/>
+          <label htmlFor="pawns"> Show pawns</label>
+          
+          <input type="checkbox" id="emptyRows" name="emptyRows" value={view.emptyRows} onChange={handleBoardView}/>
+          <label htmlFor="emptyRows"> Show empty rows</label>
+        </form>
       </div>
 
       <div className={checkView()}>
+        {console.log(view)}
         {orientation === "White" && <WhiteOrientation pieces={pieces} view={view}/>}
         {orientation === "Black" && <BlackOrientation pieces={pieces} view={view}/>}
 
