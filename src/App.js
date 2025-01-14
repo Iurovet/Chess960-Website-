@@ -6,7 +6,9 @@ import { useState } from 'react';
 function App() {
   const [orientation, setOrientation] = useState("White");
   const [pieces, setPieces] = useState(["rook", "knight", "bishop", "queen", "king", "bishop", "knight", "rook"]);
+  
   const [view, setView] = useState({ pawns: true, emptyRows: true });
+  const [rules, setRules] = useState({ bishops: true, kingRooks: true });
 
   const dummyArray = [0, 1, 2, 3, 4, 5, 6, 7]; // For the swap buttons;
 
@@ -23,7 +25,7 @@ function App() {
 
   const handleSwapLeft = (event) => {
     let number = event.target.name;
-    let currPieces = { ...pieces };
+    let currPieces = pieces;
     
     if (orientation === "White") {
       swap(number, number - 1, currPieces);
@@ -37,7 +39,7 @@ function App() {
 
   const handleSwapRight = (event) => {
     let number = parseInt(event.target.name);
-    let currPieces = { ...pieces };
+    let currPieces = pieces;
 
     if (orientation === "White") {
       swap(number, number + 1, currPieces);
@@ -53,6 +55,13 @@ function App() {
     let temp = currPieces[a];
     currPieces[a] = currPieces[b];
     currPieces[b] = temp;
+    
+    // Check for rules after swapping.
+    let currRules = { ...rules };
+    currRules.bishops = (currPieces.indexOf("bishop") % 2) !== (currPieces.lastIndexOf("bishop") % 2);
+    currRules.kingRooks = ((currPieces.indexOf("rook") < currPieces.indexOf("king"))
+                        && (currPieces.indexOf("king") < currPieces.lastIndexOf("rook")))    
+    setRules(currRules);
   }
 
   // Update className so that the number of grid rows adjusts. This keeps the swap buttons compact.
@@ -95,7 +104,7 @@ function App() {
           <label htmlFor="pawns"> Hide pawns</label>
           
           <input type="checkbox" id="emptyRows" name="emptyRows" defaultValue={view.emptyRows} onChange={handleBoardView}/>
-          <label htmlFor="emptyRows"> Hide empty rows</label>
+          <label htmlFor="emptyRows"> Hide empty rows</label> <br/>
         </form>
       </div>
 
@@ -109,6 +118,14 @@ function App() {
             {number < 7 && <button name={number} onClick={handleSwapRight}>&gt;</button>}
           </div>
         )}
+
+        {/* Show error messages here */}
+        <div>
+          {!rules.bishops && "Error: Bishops must be on opposite-coloured squares"}
+        </div>
+        <div>
+          {!rules.kingRooks && "Error: King must be in-between the rooks"}
+        </div>
       </div>
     </>
   );
