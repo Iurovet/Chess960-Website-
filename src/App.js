@@ -7,9 +7,7 @@ function App() {
   const [orientation, setOrientation] = useState("White");
   let pieces = ["rook", "knight", "bishop", "queen", "king", "bishop", "knight", "rook"];
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
+  const handleBoardFlip = (event) => {
     if (orientation === "White") {
       setOrientation("Black");
     }
@@ -21,9 +19,7 @@ function App() {
   return (
     <>
       <div style={{position: "absolute", left: "850px", /*border: "5px solid black"*/}}>
-        <form onSubmit={handleSubmit}>
-          <input type="submit" value="Flip board" />
-        </form>
+        <button onClick={handleBoardFlip}>Flip Board</button>
       </div>
 
       {orientation === "White" && <WhiteOrientation pieces={pieces}/>}
