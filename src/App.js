@@ -106,10 +106,10 @@ function App() {
 
         {dummyArray.map((number) => 
           <div key={number}>
-            {number > 0 && <button key={number} name={number} onClick={handleSwapLeft}>&lt;</button>}
-            {number < 7 && <button key={number} name={number} onClick={handleSwapRight}>&gt;</button>}
-          </div>)
-        }
+            {number > 0 && <button name={number} onClick={handleSwapLeft}>&lt;</button>}
+            {number < 7 && <button name={number} onClick={handleSwapRight}>&gt;</button>}
+          </div>
+        )}
       </div>
     </>
   );
