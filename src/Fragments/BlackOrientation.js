@@ -1,4 +1,4 @@
-function BlackRow(props) {
+function BlackOrientation(props) {
     return (
         <div className="container">
             <div className="black"><img src={"/Images/white" + props.pieces[7] + ".png"} alt="" width="100" height="100"></img></div>
@@ -69,4 +69,4 @@ function BlackRow(props) {
     );
 }
 
-export default BlackRow
+export default BlackOrientation

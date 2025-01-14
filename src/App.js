@@ -1,6 +1,6 @@
 import './App.css';
-import WhiteRow from './Fragments/WhiteRow';
-import BlackRow from './Fragments/BlackRow';
+import WhiteOrientation from './Fragments/WhiteOrientation';
+import BlackOrientation from './Fragments/BlackOrientation';
 import { useState } from 'react';
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
         </form>
       </div>
 
-      {orientation === "White" && <WhiteRow pieces={pieces}/>}
-      {orientation === "Black" && <BlackRow pieces={pieces}/>}
+      {orientation === "White" && <WhiteOrientation pieces={pieces}/>}
+      {orientation === "Black" && <BlackOrientation pieces={pieces}/>}
     </>
   );
 }
