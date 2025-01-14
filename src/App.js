@@ -100,7 +100,6 @@ function App() {
       </div>
 
       <div className={checkView()}>
-        {console.log(view)}
         {orientation === "White" && <WhiteOrientation pieces={pieces} view={view}/>}
         {orientation === "Black" && <BlackOrientation pieces={pieces} view={view}/>}
 
