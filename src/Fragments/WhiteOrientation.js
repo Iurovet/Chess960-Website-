@@ -1,3 +1,5 @@
+import WhiteEmptyRows from './WhiteEmptyRows.js';
+
 function WhiteOrientation(props) {
     return (
         <>
@@ -17,38 +19,9 @@ function WhiteOrientation(props) {
             <div className="white"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
             <div className="black"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
             <div className="white"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
-            <div className="black"></div>
-            <div className="white"></div>
+            
+            <WhiteEmptyRows />
+            
             <div className="white"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
             <div className="black"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
             <div className="white"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
