@@ -5,6 +5,11 @@ import { useState } from 'react';
 
 function App() {
   const [orientation, setOrientation] = useState("White");
+  const [view, setView] = useState({
+    pawns: true,
+    emptyRows: true
+  });
+  
   const [pieces, setPieces] = useState(["rook", "knight", "bishop", "queen", "king", "bishop", "knight", "rook"]);
   const dummyArray = [0, 1, 2, 3, 4, 5, 6]; // For the swap buttons;
 
@@ -50,6 +55,23 @@ function App() {
     currPieces[a] = currPieces[b];
     currPieces[b] = temp;
   }
+
+  function checkView() {
+    let currView = { ...view };
+
+    if (currView.pawns && currView.emptyRows) {
+      return "board-full";
+    }
+    else if (currView.emptyRows) {
+      return "board-no-pawns";
+    }
+    else if (currView.pawns) {
+      return "board-no-empty-rows";
+    }
+    else {
+      return "board-no-empty-rows-or-pawns";
+    }
+  }
   
   return (
     <>
@@ -57,9 +79,9 @@ function App() {
         <button onClick={handleBoardFlip}>Flip Board</button>
       </div>
 
-      <div className="container">
-        {orientation === "White" && <WhiteOrientation pieces={pieces}/>}
-        {orientation === "Black" && <BlackOrientation pieces={pieces}/>}
+      <div className={checkView()}>
+        {orientation === "White" && <WhiteOrientation pieces={pieces} view={view}/>}
+        {orientation === "Black" && <BlackOrientation pieces={pieces} view={view}/>}
 
         {dummyArray.map((number) => <div key={number}><button key={number} name={number} onClick={handleSwapRight}>&gt;</button></div>)}
         <div></div>

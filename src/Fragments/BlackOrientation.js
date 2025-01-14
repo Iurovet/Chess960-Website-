@@ -1,4 +1,6 @@
 import BlackEmptyRows from './BlackEmptyRows.js';
+import BlackPawns from './BlackPawns.js';
+import WhitePawns from './WhitePawns.js';
 
 function BlackOrientation(props) {
     return (
@@ -11,25 +13,11 @@ function BlackOrientation(props) {
             <div className="white"><img src={"/Images/white" + props.pieces[2] + ".png"} alt="" width="100" height="100"></img></div>
             <div className="black"><img src={"/Images/white" + props.pieces[1] + ".png"} alt="" width="100" height="100"></img></div>
             <div className="white"><img src={"/Images/white" + props.pieces[0] + ".png"} alt="" width="100" height="100"></img></div>
-            <div className="white"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="black"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="white"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="black"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="white"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="black"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="white"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="black"><img src={"/Images/whitepawn.png"} alt="" width="100" height="100"></img></div>
+            
+            {props.view.pawns && <WhitePawns />}
+            {props.view.emptyRows && <BlackEmptyRows />}
+            {props.view.pawns && <BlackPawns />}
 
-            <BlackEmptyRows />
-
-            <div className="black"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="white"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="black"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="white"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="black"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="white"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="black"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
-            <div className="white"><img src={"/Images/blackpawn.png"} alt="" width="100" height="100"></img></div>
             <div className="white"><img src={"/Images/black" + props.pieces[7] + ".png"} alt="" width="100" height="100"></img></div>
             <div className="black"><img src={"/Images/black" + props.pieces[6] + ".png"} alt="" width="100" height="100"></img></div>
             <div className="white"><img src={"/Images/black" + props.pieces[5] + ".png"} alt="" width="100" height="100"></img></div>
