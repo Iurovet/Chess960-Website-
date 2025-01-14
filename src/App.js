@@ -50,40 +50,6 @@ function App() {
     currPieces[a] = currPieces[b];
     currPieces[b] = temp;
   }
-
-  const handleSwapLeft = (event) => {
-    let number = event.target.name;
-    let currPieces = { ...pieces };
-    
-    if (orientation === "White") {
-      swap(number, number - 1, currPieces);
-    }
-    else if (orientation === "Black") {
-      swap(7 - number, 7 - (number - 1), currPieces);
-    }
-
-    setPieces(currPieces);
-  }
-
-  const handleSwapRight = (event) => {
-    let number = event.target.name;
-    let currPieces = { ...pieces };
-
-    if (orientation === "White") {
-      swap(number, number + 1, currPieces);
-    }
-    else if (orientation === "Black") {
-      swap(7 - number, 7 - (number + 1), currPieces);
-    }
-    
-    setPieces(currPieces);
-  }
-
-  function swap(a, b, currPieces) {
-    let temp = currPieces[a];
-    currPieces[a] = currPieces[b];
-    currPieces[b] = temp;
-  }
   
   return (
     <>
